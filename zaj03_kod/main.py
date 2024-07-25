@@ -1,3 +1,4 @@
+from fleet.station import Station
 from fleet.ambulance import Ambulance
 from operations import *
 from personnel import *
@@ -38,6 +39,18 @@ def run_application():
     driver1.update_salary(5000.12)
     print(f"Po podwyżce: {driver1.display_info()}")
 
+    station1 = Station((50.5, 18.5), ambulance1, driver1, employee1)
+    station2 = Station((60, 20), ambulance2, driver2, employee2)
+    print()
+    print(f'Pierwsza stacja: {station1}')
+    print(f'Druga stacja: {station2}')
+    print()
+    station1.check_location()
+    station2.check_location()
+    ambulance1.location = (50.5, 18.5)
+    ambulance2.location = (60, 20)
+    station1.check_location()
+    station2.check_location()
 
 if __name__ == "__main__":
     run_application()
